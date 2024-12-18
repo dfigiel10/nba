@@ -11,7 +11,8 @@ public class PlayerMapper {
                 player.getLastName(),
                 player.getHeight(),
                 player.getWeight(),
-                player.getPosition()
+                player.getPosition(),
+                player.getTeams()
         );
     }
 
@@ -22,7 +23,8 @@ public class PlayerMapper {
                 PlayerDto.getLastName(),
                 PlayerDto.getHeight(),
                 PlayerDto.getWeight(),
-                PlayerDto.getPosition()
+                PlayerDto.getPosition(),
+                PlayerDto.getTeams()
         );
     }
 }
