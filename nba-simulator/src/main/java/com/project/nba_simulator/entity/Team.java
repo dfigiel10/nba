@@ -1,6 +1,7 @@
 package com.project.nba_simulator.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.AllArgsConstructor;
@@ -21,6 +22,7 @@ public class Team {
     private Long id;
     private String name;
     @ManyToMany (mappedBy = "teams")
+    @JsonManagedReference
     private List<Player> roster;
 
 }

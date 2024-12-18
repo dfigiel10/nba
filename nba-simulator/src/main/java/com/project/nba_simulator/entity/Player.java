@@ -1,5 +1,6 @@
 package com.project.nba_simulator.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.AllArgsConstructor;
@@ -30,6 +31,7 @@ public class Player {
             joinColumns = @JoinColumn(name = "player_id"),
             inverseJoinColumns = @JoinColumn(name = "team_id")
     )
+    @JsonBackReference
     private List<Team> teams;
 
 }
