@@ -24,7 +24,14 @@ public class Player {
     private String lastName;
     private int height;
     private int weight;
-    private String position;
+    //private String position;
+    @ManyToMany
+    @JoinTable (
+            name = "player_position",
+            joinColumns = @JoinColumn(name = "player_id"),
+            inverseJoinColumns = @JoinColumn(name = "position_id")
+    )
+    private List<Position> positions;
     @ManyToMany
     @JoinTable (
             name = "player_team",
@@ -33,5 +40,6 @@ public class Player {
     )
     @JsonBackReference
     private List<Team> teams;
+
 
 }

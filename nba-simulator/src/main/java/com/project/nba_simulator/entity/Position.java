@@ -1,5 +1,6 @@
 package com.project.nba_simulator.entity;
 
+import com.project.nba_simulator.dto.PlayerDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.AllArgsConstructor;
@@ -19,4 +20,6 @@ public class Position {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String position;
+    @ManyToMany (mappedBy = "positions")
+    private List<PlayerDto> players;
 }

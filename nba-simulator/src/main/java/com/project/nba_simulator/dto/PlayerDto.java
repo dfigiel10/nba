@@ -1,5 +1,6 @@
 package com.project.nba_simulator.dto;
 
+import com.project.nba_simulator.entity.Position;
 import com.project.nba_simulator.entity.Team;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,7 +17,7 @@ public class PlayerDto {
     private String lastName;
     private int height;
     private int weight;
-    private String position;
+    private List<Position> positions;
     private List<Team> teams;
 
 }
