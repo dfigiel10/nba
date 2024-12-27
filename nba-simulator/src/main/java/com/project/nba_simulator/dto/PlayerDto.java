@@ -17,7 +17,7 @@ public class PlayerDto {
     private String lastName;
     private int height;
     private int weight;
-    private List<Position> positions;
+    private Set<Position> positions;
     private List<Team> teams;
 
 }

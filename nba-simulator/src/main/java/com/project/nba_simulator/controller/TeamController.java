@@ -11,7 +11,7 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.*;
 import java.util.Map;
 
 @CrossOrigin("*")
@@ -28,16 +28,16 @@ public class TeamController {
     }
 
     @PutMapping("/addPlayer")
-    public ResponseEntity<HttpStatus> addPlayer(@RequestParam Long teamId, @RequestParam Long playerId) {
-//        Long teamId = ids.get("teamId");
-//        Long playerId = ids.get("playerId");
+    public ResponseEntity<HttpStatus> addPlayer(@RequestBody Map<String, Long> playerToAdd) { //@RequestParam Long teamId, @RequestParam Long playerId
+        Long teamId = playerToAdd.get("teamId");
+        Long playerId = playerToAdd.get("playerId");
         teamService.addPlayer(teamId, playerId);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/getRoster")
-    public ResponseEntity<List<Player>> getRoster(@RequestParam Long teamId) {
-        List<Player> roster = teamService.getRoster(teamId);
+    public ResponseEntity<Set<Player>> getRoster(@RequestParam Long teamId) {
+        Set<Player> roster = teamService.getRoster(teamId);
         return new ResponseEntity<>(roster, HttpStatus.OK);
     }
 }

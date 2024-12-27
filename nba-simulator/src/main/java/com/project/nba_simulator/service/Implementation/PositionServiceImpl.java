@@ -10,13 +10,13 @@ import com.project.nba_simulator.service.PositionService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.*;
 @Service
 @AllArgsConstructor
 public class PositionServiceImpl implements PositionService {
     private PositionRepository positionRepository;
 
-    public List<Player> getPlayers(Long positionId) {
+    public Set<Player> getPlayers(Long positionId) {
         Position position = positionRepository.findById(positionId)
                 .orElseThrow(() -> new RuntimeException("Position not found"));
         return position.getPlayers();

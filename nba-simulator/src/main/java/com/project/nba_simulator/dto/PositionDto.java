@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import java.util.List;
+import java.util.*;
 
 @Getter
 @Setter
@@ -14,5 +14,5 @@ import java.util.List;
 public class PositionDto {
     private Long id;
     private String position;
-    private List<Player> players;
+    private Set<Player> players;
 }

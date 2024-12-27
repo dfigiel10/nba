@@ -4,9 +4,9 @@ import com.project.nba_simulator.dto.PlayerDto;
 import com.project.nba_simulator.dto.PositionDto;
 import com.project.nba_simulator.entity.Player;
 
-import java.util.List;
+import java.util.*;
 
 public interface PositionService {
-    List<Player> getPlayers(Long positionId);
+    Set<Player> getPlayers(Long positionId);
     PositionDto createPosition(PositionDto positionDto);
 }

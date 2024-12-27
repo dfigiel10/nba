@@ -1,13 +1,14 @@
 package com.project.nba_simulator.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
+import java.util.*;
 
 @Getter
 @Setter
@@ -31,14 +32,15 @@ public class Player {
             joinColumns = @JoinColumn(name = "player_id"),
             inverseJoinColumns = @JoinColumn(name = "position_id")
     )
-    private List<Position> positions;
+    @JsonManagedReference
+    private Set<Position> positions;
     @ManyToMany
     @JoinTable (
             name = "player_team",
             joinColumns = @JoinColumn(name = "player_id"),
             inverseJoinColumns = @JoinColumn(name = "team_id")
     )
-    @JsonBackReference
+    @JsonManagedReference
     private List<Team> teams;
 
 

@@ -2,7 +2,7 @@ package com.project.nba_simulator.dto;
 
 import com.project.nba_simulator.entity.Player;
 
-import java.util.List;
+import java.util.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,5 +15,5 @@ import lombok.Setter;
 public class TeamDto {
     private Long id;
     private String name;
-    private List<Player> roster;
+    private Set<Player> roster;
 }

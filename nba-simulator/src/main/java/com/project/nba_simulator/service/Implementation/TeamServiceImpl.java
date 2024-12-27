@@ -13,7 +13,7 @@ import com.project.nba_simulator.service.TeamService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.*;
 import java.util.Optional;
 
 @Service
@@ -52,7 +52,7 @@ public class TeamServiceImpl implements TeamService {
     }
 
     @Override
-    public List<Player> getRoster(Long teamId) {
+    public Set<Player> getRoster(Long teamId) {
         Team team = teamRepository.findById(teamId)
                 .orElseThrow(() -> new RuntimeException("Team not found"));
         return team.getRoster();
