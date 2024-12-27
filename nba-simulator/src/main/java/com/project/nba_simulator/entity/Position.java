@@ -21,5 +21,5 @@ public class Position {
     private Long id;
     private String position;
     @ManyToMany (mappedBy = "positions")
-    private List<PlayerDto> players;
+    private List<Player> players;
 }
