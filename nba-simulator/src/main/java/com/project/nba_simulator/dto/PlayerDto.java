@@ -19,5 +19,5 @@ public class PlayerDto {
     private int weight;
     private Set<Position> positions;
     private List<Team> teams;
-
+    private String hand;
 }

@@ -12,7 +12,8 @@ public class PlayerMapper {
                 player.getHeight(),
                 player.getWeight(),
                 player.getPositions(),
-                player.getTeams()
+                player.getTeams(),
+                player.getHand()
         );
     }
 
@@ -24,7 +25,8 @@ public class PlayerMapper {
                 PlayerDto.getHeight(),
                 PlayerDto.getWeight(),
                 PlayerDto.getPositions(),
-                PlayerDto.getTeams()
+                PlayerDto.getTeams(),
+                PlayerDto.getHand()
         );
     }
 }

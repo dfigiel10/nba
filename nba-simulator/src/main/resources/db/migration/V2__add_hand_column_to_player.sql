@@ -1,0 +1,1 @@
+ALTER TABLE player ADD COLUMN hand VARCHAR(10);
