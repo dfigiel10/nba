@@ -36,7 +36,8 @@ public class TeamController {
     }
 
     @GetMapping("/getRoster")
-    public ResponseEntity<Set<Player>> getRoster(@RequestParam Long teamId) {
+    public ResponseEntity<Set<Player>> getRoster(@RequestBody Map<String, Long> team) {
+        Long teamId = team.get("teamId");
         Set<Player> roster = teamService.getRoster(teamId);
         return new ResponseEntity<>(roster, HttpStatus.OK);
     }
