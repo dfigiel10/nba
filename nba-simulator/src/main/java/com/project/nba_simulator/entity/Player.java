@@ -42,7 +42,6 @@ public class Player {
     )
     @JsonManagedReference
     private List<Team> teams;
-    //private String hand;
 
 
 }
