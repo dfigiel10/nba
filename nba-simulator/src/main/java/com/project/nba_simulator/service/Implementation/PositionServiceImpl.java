@@ -5,6 +5,7 @@ import com.project.nba_simulator.dto.PositionDto;
 import com.project.nba_simulator.entity.Player;
 import com.project.nba_simulator.entity.Position;
 import com.project.nba_simulator.mapper.PositionMapper;
+import com.project.nba_simulator.repository.PlayerRepository;
 import com.project.nba_simulator.repository.PositionRepository;
 import com.project.nba_simulator.service.PositionService;
 import lombok.AllArgsConstructor;
@@ -15,6 +16,7 @@ import java.util.*;
 @AllArgsConstructor
 public class PositionServiceImpl implements PositionService {
     private PositionRepository positionRepository;
+    private PlayerRepository playerRepository;
 
     public Set<Player> getPlayers(Long positionId) {
         Position position = positionRepository.findById(positionId)
@@ -23,7 +25,7 @@ public class PositionServiceImpl implements PositionService {
     }
 
     public PositionDto createPosition(PositionDto positionDto) {
-        Position position = PositionMapper.mapToPosition(positionDto);
+        Position position = PositionMapper.mapToPosition(positionDto, playerRepository);
         Position savedPosition = positionRepository.save(position);
         return PositionMapper.mapToPositionDto(savedPosition);
     }

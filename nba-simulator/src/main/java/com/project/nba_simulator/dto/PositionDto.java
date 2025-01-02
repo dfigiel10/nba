@@ -14,5 +14,5 @@ import java.util.*;
 public class PositionDto {
     private Long id;
     private String position;
-    private Set<Player> players;
+    private Set<Long> players;
 }
