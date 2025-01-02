@@ -6,6 +6,8 @@ import com.project.nba_simulator.entity.Player;
 import com.project.nba_simulator.entity.Position;
 import com.project.nba_simulator.mapper.PlayerMapper;
 import com.project.nba_simulator.repository.PlayerRepository;
+import com.project.nba_simulator.repository.PositionRepository;
+import com.project.nba_simulator.repository.TeamRepository;
 import com.project.nba_simulator.service.PlayerService;
 import com.project.nba_simulator.service.PositionService;
 import lombok.AllArgsConstructor;
@@ -18,11 +20,15 @@ public class PlayerServiceImpl implements PlayerService {
     @Autowired
     private PlayerRepository playerRepository;
     @Autowired
+    private PositionRepository positionRepository;
+    @Autowired
+    private TeamRepository teamRepository;
+    @Autowired
     private PositionServiceImpl positionService;
 
     @Override
     public PlayerDto createPlayer(PlayerDto playerDto) {
-        Player player = PlayerMapper.mapToPlayer(playerDto);
+        Player player = PlayerMapper.mapToPlayer(playerDto, positionRepository, teamRepository);
         Player savedPlayer = playerRepository.save(player);
         return PlayerMapper.mapToPlayerDto(savedPlayer);
     }

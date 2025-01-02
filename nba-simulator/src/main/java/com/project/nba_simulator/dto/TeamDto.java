@@ -15,5 +15,5 @@ import lombok.Setter;
 public class TeamDto {
     private Long id;
     private String name;
-    private Set<Player> roster;
+    private Set<Long> roster;
 }
